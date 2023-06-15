@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "791c4397-3aea-477a-8c56-4d4825c8cf20",
+		"name": "SellerApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27662460"
+	},
+	"item": [
+		{
+			"name": "Add an Auction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "mydummyToken",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"owner_id\": \"125\",\n    \"title\": \"Star-Wars Toy\",\n    \"description\": \"epic space battles with this highly-detailed Star Wars ship toy\",\n    \"base_price\": 1000,\n    \"expires_after_minutes\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3005/v1/auction",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"v1",
+						"auction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Open Auctions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "mydummyToken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3005/v1/auction/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"v1",
+						"auction",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a Bid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "mydummyToken",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"DEF KUMAR\",\n    \"email\": \"def@gmail.com\",\n    \"auctionId\": \"648ab4c98663528207af3c2e\",\n    \"amount\": 1200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3005/v1/bid",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"v1",
+						"bid"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

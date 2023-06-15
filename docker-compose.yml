@@ -1,0 +1,33 @@
+services:
+  buffalo:
+    build: ./buffalo
+    ports:
+        - '3005:3005'
+    environment:
+        - TZ=Asia/Kolkata
+    container_name: seller_app_go
+    volumes:     
+    - ./seller_app_go:/go/src/app/seller_app_go:rw
+    depends_on:
+      - mongodb
+      - redis
+    tty: true
+  redis:
+    build: ./redis
+    ports:
+      - "6379:6379"
+    environment:
+        - TZ=Asia/Kolkata
+    container_name: seller_app_redis
+  mongodb:
+    build: ./mongodb
+    ports:
+      - "27017:27017"
+    environment:
+        - TZ=Asia/Kolkata
+    container_name: seller_app_mongo
+    volumes: 
+    - data:/data/db
+
+volumes:
+ data: {}
